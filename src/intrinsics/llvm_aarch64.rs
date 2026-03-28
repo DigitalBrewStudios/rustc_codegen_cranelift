@@ -17,6 +17,17 @@ pub(super) fn codegen_aarch64_llvm_intrinsic_call<'tcx>(
     // llvm.aarch64.neon.sqshl.v*i*
 
     match intrinsic {
+        "llvm.aarch64.crc32b" => {
+            intrinsic_args!(fx, args => (crc, v); intrinsic);
+
+            let crc = crc.load_scalar(fx);
+            let v = v.load_scalar(fx);
+
+            let asm = match intrinsic {
+                
+            } 
+
+        }
         "llvm.aarch64.isb" => {
             fx.bcx.ins().fence();
         }
